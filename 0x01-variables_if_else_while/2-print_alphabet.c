@@ -1,6 +1,4 @@
-#include <stdlib.h>
 #include <stdio.h>
-#include <time.h>
 
 /**
  * main - Entry point
@@ -11,18 +9,10 @@ int main(void)
 {
 	char alphabet;
 
-	srand(time(0));
-	alphabet = rand() - RAND_MAX / 2;
-	char alphabet = 'a';
-
-	while (alphabet <= 'z')
-
-	{
+	for (alphabet = 'a'; alphabet <= 'z'; alphabet++)
 		putchar(alphabet);
 
-		alphabet++;
-	}
-
 	putchar('\n');
+
 	return (0);
 }
