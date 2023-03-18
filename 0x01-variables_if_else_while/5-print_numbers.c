@@ -9,7 +9,7 @@ int main(void)
 {
 	int digit;
 
-	for (digit = 0; < 10; num++)
+	for (digit = 0; digit < 10; num++)
 		printf("%d", digit);
 
 	printf("\n");
