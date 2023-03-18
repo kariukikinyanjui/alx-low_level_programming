@@ -12,7 +12,7 @@ int main(void)
 	char alphabet;
 
 	srand(time(0));
-	n = rand() - RAND_MAX / 2;
+	alphabet = rand() - RAND_MAX / 2;
 	char alphabet = 'a';
 
 	while (alphabet <= 'z')
