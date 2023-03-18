@@ -13,9 +13,9 @@ int main(void)
 		putcher(alphabet);
 
 	for (alphabet = 'A'; alphabet <= 'Z'; alphabet++)
-		putcher(alphabet);
+		putchar(alphabet);
 
-	putcher('\n');
+	putchar('\n');
 
 	return (0);
 }
