@@ -3,11 +3,11 @@
 /**
  * print_alphabet - Prints the alphabet, in lowercase, followed by a new line.
  *
- * Return: Always 0.
+ * Return: void
  */
 void print_alphabet(void);
 {
-	int a;
+	char a;
 
 	for (a = 'a'; a <= 'z'; a++)
 	{
