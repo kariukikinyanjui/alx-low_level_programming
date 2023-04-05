@@ -1,0 +1,1 @@
+Recursion is a programming technique in which a function calls itself, either directly or indirectly. Recursion is a powerful tool that can be used to solve many complex problems in an elegant and efficient way. In C programming language, recursion is implemented using functions.
