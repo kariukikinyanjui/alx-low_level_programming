@@ -1,0 +1,1 @@
+A static library, also known as a static link library or archive, is a collection of precompiled object files that are packaged together as a single file. It contains code and data that can be used by programs at compile-time and runtime.
