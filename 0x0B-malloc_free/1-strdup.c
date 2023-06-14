@@ -1,6 +1,4 @@
 #include "main.h"
-#include <string.h>
-#include <stddef.h>
 
 /**
  * _strdup - duplicate string
@@ -12,10 +10,12 @@ char *_strdup(char *str)
 	int a, k = 0;
 	char *str2;
 
-	if (str == 0)
+	if (str == NULL)
 	{
 		return (NULL);
 	}
+	
+	a = 0;
 
 	while (str[a] != '\0')
 	{
@@ -29,7 +29,7 @@ char *_strdup(char *str)
 		return (NULL);
 	}
 	for (k = 0; str[k]; k++)
-		str[k] = str[k];
+		str2[k] = str[k];
 
 	return (str2);
 }
