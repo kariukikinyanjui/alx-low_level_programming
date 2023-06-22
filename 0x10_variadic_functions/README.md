@@ -1,1 +1,0 @@
-A variadic function is a function that can accept a variable number of arguments. It allows you to write functions that can take different numbers of arguments, making them flexible and adaptable to different use cases. Variadic functions are commonly used in programming languages to handle situations where the number of arguments may vary.
