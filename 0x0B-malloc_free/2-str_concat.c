@@ -1,5 +1,5 @@
 #include "main.h"
-
+#include <string.h>
 /**
  * str_concat - concatenates two strings
  * @s1: array of characters
@@ -8,10 +8,8 @@
  */
 char *str_concat(char *s1, char *s2)
 {
-	char *s3;
-	int b, q;
-
-	b = q = 0;
+	char *p;
+	size_t lenA, lenB;
 
 	if (s1 == NULL)
 	{
@@ -22,30 +20,21 @@ char *str_concat(char *s1, char *s2)
 		s2 = "";
 	}
 
-	while (s1[b] != '\0')
-	{
-		b++;
-	}
-	while (s2[q] != '\0')
-	{
-		q++;
-	}
-	s3 = malloc(sizeof(char) * (b + q + 1));
+	lenA = strlen(s1);
+	lenB = strlen(s2);
 
-	if (s3 == NULL)
+	p =(char*)malloc((lenA + lenB + 1) * sizeof(char));
+	if (p == NULL)
 	{
 		return (NULL);
 	}
+	
+	strcpy(p, s1);
 
-	while (s1[b] != '\0')
-	{
-		s3[b] = s1[b];
-	}
-	while (s2[q] != '\0')
-	{
-		s3[b] = s2[b];
-		b++, q++;
-	}
-	s3[b] = '\0';
-	return (s3);
+	strcat(p, s2);
+
+	return (p);
+	free(p);
+
+
 }
