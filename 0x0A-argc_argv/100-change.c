@@ -30,7 +30,6 @@ int main(int argc, char **argv)
 	c5 = 5;
 	c2 = 2;
 	c1 = 1;
-
 	coins = 0;
 
 	coins += cents / c25;
