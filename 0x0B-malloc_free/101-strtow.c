@@ -1,29 +1,5 @@
 #include "main.h"
-
-/**
- * word_count - helper function
- * @str: string to use
- * Return: number of words
- */
-int word_count(char *str)
-{
-	int word, count = 0;
-
-	while (*str)
-	{
-		if (*str == ' ')
-		{
-			word = 0;
-		}
-		else if (!word)
-		{
-			word = 1;
-			count++;
-		}
-		str++;
-	}
-	return (count);
-}
+#include <string.h>
 
 /**
  * strtow -splits a string into words
@@ -32,54 +8,66 @@ int word_count(char *str)
  */
 char **strtow(char *str)
 {
-	char **mat, *tmp;
-	int a, b = 0, length = 0, words, c = 0, start, end;
+	int a, b, count, index, start, len;
+	char **c;
 
-		while (*(str + length))
-		{
-			length++;
-			words = word_count(str);
-		}
-		if (words == 0)
-		{	
-			return (NULL);
-		}
-		mat = (char **)malloc(sizeof(char *) * (words + 1));
+	if (str == NULL || *str == '\0')
+		return (NULL);
 
-		if (mat == NULL)
+	count = 0;
+	a = 0;
+
+	while (str[a] != '\0')
+	{
+		while (str[a] == ' ')
 		{
-			return (NULL);
+			a++;
 		}
-			for (a = 0; a <= length; a++)
+		if (str[a] != '\0')
+		{
+			count++;
+			while (str[a] != '\0' && str[a] != ' ')
+				a++;
+		}
+
+	}
+	c = (char **)malloc((count + 1) * sizeof(char *));
+
+	if (c == NULL)
+		return (NULL);
+
+	index = 0;
+	a = 0;
+
+	while (str[a] != '\0')
+	{
+		while (str[a] == ' ')
+			a++;
+
+		if (str[a] != '\0')
+		{
+			start = a;
+			len = 0;
+
+			while (str[a] != '\0' && str[a] != ' ')
 			{
-				if (str[a] == ' ' || str[a] == '\0')
-				{
-					if (c)
-					{
-						end = a;
-						tmp = (char *)malloc(sizeof(char) * (c + 1));
-
-						if (tmp == NULL)
-						{
-							return (NULL);
-						}
-						while (start < end)
-						{
-							*tmp++ = str[start++];
-							*tmp = '\0';
-							mat[b] = tmp - c;
-							b++;
-							c = 0;
-						}
-					}
-					else if (c++ == 0)
-					{
-					start = a;
-					}
-
-				}
+				a++;
+				len++;
 			}
-	mat[b] = NULL;
+			c[index] = (char *)malloc((len + 1) * sizeof(char));
+			if (c[index] == NULL)
+			{
+				for (b = 0; b < index; b++)
+					free(c[b]);
+				free(c);
+				return (NULL);
+			}
+			strncpy(c[index], str + start, len);
+			c[index][len] = '\0';
+			index++;
+		}
+	}
+	c[count] = NULL;
+	return (c);
 
-	return (mat);
 }
