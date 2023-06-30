@@ -2,7 +2,7 @@ section .data
 	hello_msg db "Hello, HOlberton", 0
 	format db "%s", 10,0
 
-section.text
+section .text
 	extern printf
 
 global _start
