@@ -4,7 +4,7 @@
  * create_file - a function that creates a file with the specified
  * name and writes the given text content to it
  * @filename: string representing the name of the file to create
- * @text_content - string to write to the file
+ * @text_content: - string to write to the file
  * Return: 1 on success and -1 on failure
  */
 int create_file(const char *filename, char *text_content)
