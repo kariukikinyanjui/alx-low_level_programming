@@ -13,23 +13,23 @@ void print_error_and_exit(const char *message, int exit_code)
 }
 /**
  * copy_file - performs the actual copying of the file content
- * @ffrom: source file
- * @fto: destination file
+ * @file_from: source file
+ * @file_to: destination file
  * Return: 0
  */
-void copy_file(const char *ffrom, const char *fto)
+void copy_file(const char *file_from, const char *file_to)
 {
 	int fd_from, fd_to;
 	ssize_t b_read, b_written;
 	char buffer[BUFF_SIZE];
 
-	fd_from = open(ffrom, O_RDONLY);
+	fd_from = open(file_from, O_RDONLY);
 
 	if (fd_from == -1)
 	{
 		print_error_and_exit("Error: Can't read from file", 98);
 	}
-fd_to = open(fto, O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR
+fd_to = open(file_to, O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR
 		| S_IWUSR | S_IRGRP | S_IROTH);
 	if (fd_to == -1)
 	{
@@ -62,17 +62,17 @@ fd_to = open(fto, O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR
  */
 int main(int argc, char *argv[])
 {
-	const char *ffrom;
-	const char *fto;
+	const char *file_from;
+	const char *file_to;
 
 	if (argc != 3)
 	{
 		print_error_and_exit("Usage: cp file_from file_to", 97);
 	}
-	ffrom = argv[1];
-	fto = argv[2];
+	file_from = argv[1];
+	file_to = argv[2];
 
-	copy_file(ffrom, fto);
+	copy_file(file_from, file_to);
 
 	return (0);
 }
